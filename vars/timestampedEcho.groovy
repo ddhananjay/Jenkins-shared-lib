@@ -1,4 +1,4 @@
 def call(String message) {
-    String timestamp = org.my-app.utils.DateUtils.getTimestamp()
+    String timestamp = org.utils.DateUtils.getTimestamp()
     echo "[${timestamp}] ${message}"
 }
