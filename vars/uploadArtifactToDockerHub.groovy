@@ -3,7 +3,7 @@ def call(String imageName, String tag, String username, String dockerCredentials
      sh "echo Pushing docker file to docker hub..${imageName}"
    withCredentials([usernamePassword(credentialsId: dockerCredentialsId, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
        echo "Logging in to Docker Hub"
-       sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin ${registry}"
+       sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin ${username}"
 
       docker.withRegistry('https://index.docker.io/v1/', dockerCredentialsId) {
                             sh """
