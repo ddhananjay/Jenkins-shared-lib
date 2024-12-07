@@ -1,14 +1,14 @@
 def call(String language) {
     if (language == "java") {
         echo "Testing a Java project"
-        sh './gradlew test'
+        sh './gradlew runTests'
     } else if (language == "nodejs") {
         echo "Testing a Node.js project"
         def packageJson = readJSON file: 'package.json'
         if (packageJson.scripts?.test) {
-               sh 'npm test'
+               sh 'npm runTests'
          } else {
-                 echo "No test specified in package.json, skipping test stage."
+                 echo "No runTests specified in package.json, skipping runTests stage."
          }
     } else {
         error "Unknown language: ${language}"
