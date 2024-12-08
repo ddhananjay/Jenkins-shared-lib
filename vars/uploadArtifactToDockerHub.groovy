@@ -1,5 +1,5 @@
-def call(String imageName, String tag, String username, String registry = 'docker.io', String dockerCredentialsId = 'dockerhub') {
-
+def call(String imageName, String tag, String username, String dockerCredentialsId = 'dockerhub', String registry = 'docker.io') {
+   echo "Logging in to Docker Hub"
    withCredentials([usernamePassword(credentialsId: dockerCredentialsId, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
        echo "Logging in to Docker Hub"
        sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin ${registry}'
