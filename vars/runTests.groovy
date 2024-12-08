@@ -1,7 +1,7 @@
 def call(String language) {
     if (language == "java") {
         echo "Testing a Java project"
-        sh './gradlew runTests'
+        sh './gradlew test'
     } else if (language == "nodejs") {
         echo "Testing a Node.js project"
         def packageJson = readJSON file: 'package.json'
