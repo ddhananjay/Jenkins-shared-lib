@@ -6,7 +6,7 @@ def call(String imageName, String tag, String username, String dockerCredentials
 
       docker.withRegistry('https://index.docker.io/v1/', dockerCredentialsId) {
                             sh """
-                                docker push ${username}/${imageName}:${tag}
+                                /usr/local/bin/docker push ${username}/${imageName}:${tag}
                             """
                   }
        }
