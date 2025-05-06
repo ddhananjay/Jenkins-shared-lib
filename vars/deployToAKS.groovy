@@ -19,8 +19,8 @@ def call(String tenantId, String subscriptionId, String resourceGroup, String ak
         def containerName = 'myapp-container'
 
         sh """
-            /opt/homebrew/bin/kubectl set image deployment/${deploymentName} ${containerName}=${dockerImage} --record -n kube-system
-            /opt/homebrew/bin/kubectl rollout status deployment/${deploymentName} -n kube-system
+            /opt/homebrew/bin/kubectl apply -f k8s/deployment.yaml -n kube-system
+            /opt/homebrew/bin/kubectl rollout status deployment/myapp-deployment -n kube-system
         """
     }
 }
