@@ -1,4 +1,4 @@
-def call(String tenantId, String subscriptionId, String resourceGroup, String aksCluster, String dockerImage, String azureCredsId) {
+def call(String tenantId, String subscriptionId, String resourceGroup, String aksCluster, String dockerImage, String azureCredsId, String dockerImage) {
    stage('Azure Login') {
         withCredentials([usernamePassword(credentialsId: azureCredsId, usernameVariable: 'AZ_CLIENT_ID', passwordVariable: 'AZ_CLIENT_SECRET')]) {
             sh """
