@@ -2,15 +2,15 @@ def call(String tenantId, String subscriptionId, String resourceGroup, String ak
    stage('Azure Login') {
         withCredentials([usernamePassword(credentialsId: azureCredsId, usernameVariable: 'AZ_CLIENT_ID', passwordVariable: 'AZ_CLIENT_SECRET')]) {
             sh """
-                az login --service-principal -u $AZ_CLIENT_ID -p $AZ_CLIENT_SECRET --tenant ${tenantId}
-                az account set --subscription ${subscriptionId}
+                /opt/homebrew/bin/az login --service-principal -u $AZ_CLIENT_ID -p $AZ_CLIENT_SECRET --tenant ${tenantId}
+                /opt/homebrew/bin/az account set --subscription ${subscriptionId}
             """
         }
     }
 
     stage('Get AKS Credentials') {
         sh """
-            az aks get-credentials --resource-group ${resourceGroup} --name ${aksCluster} --overwrite-existing
+            /opt/homebrew/bin/az aks get-credentials --resource-group ${resourceGroup} --name ${aksCluster} --overwrite-existing
         """
     }
 
