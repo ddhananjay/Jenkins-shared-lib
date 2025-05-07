@@ -20,7 +20,6 @@ def call(String tenantId, String subscriptionId, String resourceGroup, String ak
 
         sh """
             /opt/homebrew/bin/kubectl apply -f k8s/deployment.yaml -n kube-system
-            /opt/homebrew/bin/kubectl rollout status deployment/myapp-deployment -n kube-system
         """
     }
 }
